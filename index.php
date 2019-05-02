@@ -1,3 +1,4 @@
+<?php include "juodrastis.php"?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +22,8 @@
 
 
 <?php
+
+
 
 
 ?>

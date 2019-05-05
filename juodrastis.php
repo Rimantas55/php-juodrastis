@@ -21,5 +21,5 @@ $total_cizu_per_sav = ($cizos_mon_thu * 4) + $cizos_fri + $cizos_sat_sun;
 
 //didejancios bombos php
 
-$bombos_aukstis = 80 + (date("s") * 15) . "px";
-$bombos_plotis = 120 + (date("s") * 15) . "px";
+$bombos_aukstis = 80 + (date("s") * 5);
+$bombos_plotis = 120 + (date("s") * 5);

@@ -15,15 +15,10 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
     <body>
-
+        <h1>1 Uzduotis - Cizu skaiciavimas</h1>
+            <?php print cizos(); ?>
 
     </body>
 </html>
 
 
-<?php
-
-
-
-
-?>

@@ -11,6 +11,8 @@ $size = 100;
 <html lang="en">
 <head>
     <meta charset="utf-8">
+<!--    meta tagas kuris refresina browseri, galima nurdyti kiek sec-->
+<!--    <meta http-equiv="refresh" content="1">-->
     <title>Php juodrastis</title>
 
     <!-- Google Fonts -->
@@ -30,8 +32,8 @@ $size = 100;
 
         }
         /*kodel neprisitaiko paveikslelis prie div aukscio ir plocio*/
-        .tiksinti-bomba img {
-            max-height: 100%;
+        img {
+            max-width: 100%;
         }
 
         /*Tado pavyzdys*/
@@ -59,15 +61,26 @@ $size = 100;
 </head>
     <body>
         <h1>1 Uzduotis - Cizu skaiciavimas</h1>
-            <?php //print cizos(); ?>
+            <?php print cizos(); ?>
 
 
         <h1>2 Uzduotis - Kas sekunde didejanti bomba kuri minutes pabaigoje sprogsta</h1>
+        <?php if(date("s" <= 1)): ?>
 
         <div class="bomba">
             <img src="https://static2.inspektorius.lt/usi/980x654/3/99/ad/09/99ad096b1d352b45732b0918fccc2517.jpg?v=4.0.5.09&t=cr&s=980x654&m=3&f=/Uploads/UArticles/leadPhotos/e2/25/68/86/e22568862d16199d3e15b2b7c29ab390.jpg" alt="bomba" class="tiksinti-bomba">
-            <p>Time: <?php print date("s") ;?></p>
+
+
         </div>
+            <h2>Time: <?php print date("s") ;?></h2>
+        <?php else : ?>
+
+            <div class="bomba">
+                <img src="https://img.newatlas.com/satan-truth-58.jpg?auto=format%2Ccompress&ch=Width%2CDPR&fit=crop&h=347&q=60&rect=0%2C42%2C1496%2C841&w=616&s=1913d819e9cfb41ded46cd560d2af6dc" alt="bomba" class="tiksinti-bomba">
+                <p>Time: <?php print date("s") ;?></p>
+            </div>
+
+        <?php endif; ?>
 
     <h1>Tado pavyzdys</h1>
     <section>
@@ -79,6 +92,65 @@ $size = 100;
     <h1>3 Uzduotis Kokie bus orai? Spaudziant refresh keiciasi orai</h1>
 
 
+    <h1> 4 Uzduotis - Isspausdinti su php 4 vienodus img</h1>
+
+            <?php //print ; ?>
+
+    <h1>5 Uzduotis - siuksliu deze</h1>
+    <pre>
+        $siukles_turis = 40; (dm3)
+        $siuksliu_turis_avg_per_day = 15;
+        $max_kaupo_turis = [rand];
+    </pre>
+    <h5>Po keliu dienu kils barnas?</h5>
+    <pre>
+        Po $dienu ([data]) pirk geliu ir sampano, jeigu nori, kad zmona siuksles pati isnestu
+    </pre>
+    <?php
+    $siukles_turis = 40; //(dm3)
+    $siuksliu_turis_avg_per_day = 15;
+    $max_kaupo_turis = rand(10,20);//cia tas kur virsus susikaups;
+
+    $dienu = round(($siukles_turis + rand(10,20)) / $siuksliu_turis_avg_per_day);
+    $laikas = date('Y-m-d', strtotime('+' . $dienu . 'days')); //"+$dienu days" antras variantas
+
+
+    $tekstas = "po $dienu $laikas reikia ismesti siuskles ";
+
+    print $tekstas;
+
+    ?>
+
+        <h1>6 Uzduotis - grikiai</h1>
+        <pre>
+            $grikiai = 5000; //g
+            $per_diena = rand(200, 500); //g
+
+            Kiek dienu gales valgyti grikius?
+
+            Jei turesiu $grikiai g. grikiu, galesiu juos valgyti
+            $survive_days dienu. jei pradesiu siandien, grikiai
+            pasibaigs [data]
+        </pre>
+
+    <?php
+    $grikiai = 5000; //g
+    $per_diena = rand(1, 5); //g
+    $x = 0;
+
+
+    for ($per_diena = 0; $per_diena <= 5; $per_diena++){ //$per_diena++
+        $per_diena = rand(1, 5);
+        $x++;//dienu skaicius
+        print $per_diena . " Ciklo rezultatas / ";
+        print $x . " dienos" . "<br>";
+    }
+
+
+
+
+
+    ?>
 
 
 

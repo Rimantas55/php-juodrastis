@@ -1,27 +1,30 @@
 <?php
-
-$days = 365;
-$savaites = 52;
-$cizos_mon_thu = rand(3, 4);
-$cizos_fri = rand(10, 20);
-$cizos_sat_sun = rand(1, 3);
-$pakelio_kaina = 3.50;
-
-
-//kodel raso kad tokio variable nera?
-$vienos_cizos_kaina = 3.5 / 20;
-
-//kodel raso kad tokio variable nera?
-$total_cizu_per_sav = ($cizos_mon_thu * 4) + $cizos_fri + $cizos_sat_sun;
-
+//kiek cizu per metus, kiek isleis pinigu, kiek sutaupys
 function cizos()
 {
-    for ($x = 1; $x <= 5; $x++) {
-        print $x . " Savaite " . " Testas" . "<br>";
+
+
+    for ($surukytos_cizos_per_savaite = 1; $surukytos_cizos_per_savaite < 5; $surukytos_cizos_per_savaite++) {
+
+        $savaites = 52;
+        $cizos_mon_thu = rand(3, 4) * 4;//surukytos cizos per 4 dienas
+        $cizos_fri = rand(10, 20);
+        $cizos_sat_sun = rand(1, 3);
+        $surukytos_cizos_per_savaite = $cizos_mon_thu + $cizos_fri + $cizos_sat_sun;
+        $pakelio_kaina = 3.50;
+        $vienos_cigaretes_kaina = $pakelio_kaina / 20;
+        $per_metus_surukytos_cigaretes = $surukytos_cizos_per_savaite * $savaites;
+        $per_metus_isleisti_pinigai_cigaretems = $surukytos_cizos_per_savaite * $savaites *  $vienos_cigaretes_kaina;
+        $islaidos_rukant_nuo_pr_kr = $cizos_mon_thu * $savaites * $vienos_cigaretes_kaina;
+
     }
+
+    print "Per metus tu surukai " . $per_metus_surukytos_cigaretes . " cigareciu ";
+    print ' ir isleidi ' . $per_metus_isleisti_pinigai_cigaretems .  " Eur" . "<br>";
+    print "Jei rukysi tik nuo Pr iki Kt, surukysi " .  $cizos_mon_thu * $savaites . " cigareciu ir sutaupysi ";
+    print $per_metus_isleisti_pinigai_cigaretems - $islaidos_rukant_nuo_pr_kr;
 }
 
-print $total_cizu_per_sav . " Cizos per sav " . $vienos_cizos_kaina * $total_cizu_per_sav . " islaidos per sav Euru" . "<br>";
 
 //----------------------
 //didejancios bombos php
@@ -44,12 +47,11 @@ $laikas = date('Y-m-d', strtotime('+' . $dienu . 'days')); //"+$dienu days" antr
 $tekstas = "Po $dienu dienu, data: $laikas reikia ismesti siuskles, kad nekiltu barnis su zmona ";
 
 
-
-
 //-------------------
 //grikiu skaiciavimas
 
-function kiek_dienu(){
+function kiek_dienu()
+{
     // $grikiai = 5000; //g
     $x = 0;
 
@@ -60,8 +62,62 @@ function kiek_dienu(){
         print $i . " Ciklo rezultatas / ";
         print $x . " dienos" . "<br>";
     }
+    print "<h3>uz ciklo paliktas print palieka galutini varianta </h3>" . "</br>";
+    print "// " . $i . " Ciklo rezultatas / ";
+    print $x . " dienos" . "<br>";
 }
 
 //cia toks kazkoks gudresnis
 //    $numbers = range(1, 10);
 //    echo implode('+', $numbers) . '=' . array_sum($numbers);
+
+
+//Rankinuko php
+
+$purse_size = rand(20, 50);
+
+$items_in_purse = [
+    [
+        'name' => 'wallet',
+        'size' => rand(5, 10),
+        'color' => rand(0, 1), //it means light or dark
+    ],
+    [
+        'name' => 'Cometics',
+        'size' => rand(10, 20),
+        'color' => rand(0, 1),
+    ],
+    [
+        'name' => 'Pan',
+        'size' => rand(20, 30),
+        'color' => rand(0, 1),
+    ],
+];
+
+//print $purse_size . ' Purse size ' . '<br>';
+//
+//$all_items_sum = 0; //without it i got error and do not sum
+//
+//
+//foreach ($items_in_purse as $key => $value) {
+//
+//    //$all_items_in_purse = 0; // nebutina taip rasyti
+//    //creating variable to output each item round size
+//    $all_items_in_purse = $value['size']; //. " One item size" . "<br>"; //ar galima rasyti?
+//
+//    print $all_items_in_purse . " m3 / One item size" . "<br>";
+//    //this variable must be in cycle
+//    $all_items_sum += $all_items_in_purse;
+//}
+//
+//print $all_items_sum . " m3 / All items sum" . "<br>";
+//
+////cia neaisku kodel negali buti >= ir neveike teisingai?
+//
+//
+
+//    if ($purse_size >= $all_items_sum) {
+//        print " All items can fit in the purse";
+//    } else {
+//        print " Purse is too small";
+//    }

@@ -2,7 +2,40 @@ body {
     background-color: yellow;
 }
 
+.cigareciu-p {
+    font-size: 20pt;
+}
+
 p {
     text-align: left;
+}
+
+section {
+    background-color: lightgreen;
+    border: 2px solid red;
+    border-radius: 15px;
+    margin-bottom: 30px;
+
+}
+
+/* Purse style*/
+#purse {
+    border: 3px solid red;
+    width: 400px;
+    height: 250px;
+}
+
+#purse div {
+    height: 50px;
+    width: 100px;
+    border: 2px solid blueviolet;
+    border-radius: 15px;
+    text-align: center;
+}
+
+table, tr, th, td {
+    border: 3px solid black;
+    border-collapse: collapse;
+    padding: 15vh;
 }
 

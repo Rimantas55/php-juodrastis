@@ -2,10 +2,6 @@ body {
     background-color: yellow;
 }
 
-.cigareciu-p {
-    font-size: 20pt;
-}
-
 p {
     text-align: left;
 }
@@ -15,8 +11,34 @@ section {
     border: 2px solid red;
     border-radius: 15px;
     margin-bottom: 30px;
-
+    display: flex;
+    flex-direction: column;
+    /*flex-wrap: nowrap;*/
+    justify-content: flex-start;
+    align-items: center;
 }
+/*Cigareciu uzduoties style*/
+.cigareciu-p {
+    font-size: 20pt;
+}
+
+
+/*bombos style*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Purse style*/
 #purse {

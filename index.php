@@ -1,12 +1,4 @@
 <?php include "juodrastis.php"; ?>
-<?php include "style.php"; ?>
-<?php
-//tado pavyzdys
-$time = date("s");
-$timer = 59 - $time;
-$explosion = $timer < 1;
-$size = 100;
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +20,6 @@ $size = 100;
         .bomba {
             height: <?php print $bombos_aukstis; ?>px;
             width: <?php print $bombos_plotis; ?>px;
-            border: 5px solid black;
         }
 
         img {
@@ -36,13 +27,13 @@ $size = 100;
         }
 
         /*Tado pavyzdys*/
-        section {
-            display: flex;
-            flex-direction: column;
-            /*flex-wrap: nowrap;*/
-            justify-content: flex-start;
-            align-items: center;
-        }
+        <?php
+        //tado pavyzdys
+        $time = date("s");
+        $timer = 59 - $time;
+        $explosion = $timer < 1;
+        $size = 100;
+        ?>
 
         .bomb {
             background-image: url("https://static2.inspektorius.lt/usi/980x654/3/99/ad/09/99ad096b1d352b45732b0918fccc2517.jpg?v=4.0.5.09&t=cr&s=980x654&m=3&f=/Uploads/UArticles/leadPhotos/e2/25/68/86/e22568862d16199d3e15b2b7c29ab390.jpg");
@@ -63,12 +54,11 @@ $size = 100;
 
         .lapes {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
-        section.lapes div {
-            /*width: 100px;*/
+        section .lapes div {
+            flex: 1;
+            margin-left: 10px;
         }
 
         section.keturi-pav img {
@@ -84,7 +74,7 @@ $size = 100;
 </head>
 <body>
 
-
+<!--Cizu Uzduotis-->
 <section class="cizu-skaiciavimas">
     <h1>1 Uzduotis - Cizu skaiciavimas</h1>
 
@@ -92,6 +82,8 @@ $size = 100;
 </section>
 
 
+
+<!--Didejanti pagal sukunde bombos uzduotis-->
 <section class="tiksinti-bomba">
     <h1>2 Uzduotis - Kas sekunde didejanti bomba kuri minutes pabaigoje sprogsta</h1>
     <?php if (date("s" <= 1)): ?>
@@ -99,8 +91,6 @@ $size = 100;
         <div class="bomba">
             <img src="https://static2.inspektorius.lt/usi/980x654/3/99/ad/09/99ad096b1d352b45732b0918fccc2517.jpg?v=4.0.5.09&t=cr&s=980x654&m=3&f=/Uploads/UArticles/leadPhotos/e2/25/68/86/e22568862d16199d3e15b2b7c29ab390.jpg"
                  alt="bomba" class="tiksinti-bomba">
-
-
         </div>
         <h2>Time: <?php print date("s"); ?></h2>
     <?php else : ?>
@@ -115,17 +105,421 @@ $size = 100;
 
 </section>
 
-
+<!--Tiksinti bomba Tado pavyzdys-->
 <section class="tiksinti-bomba-tado-pvz">
     <h1>Tado pavyzdys</h1>
-    <!--        kode po action nera 1 ()skaiciaus vienas kaip kad style nurodyta-->
     <div class="bomb action-<?php print $explosion; ?>"></div>
     <h1>: <?php print $timer; ?></h1>
 </section>
 
-
+<!--Uzduotis - kokie bus orai-->
 <section>
     <h1>3 Uzduotis Kokie bus orai? Spaudziant refresh keiciasi orai</h1>
+    <p>Sauleta</p>
+    <p>Debesuota</p>
+    <p>be lietaus</p>
+    <p>su lietum</p>
+
+    <?php
+//    foreach ($orai as $aukstai => $oru_reiksmes){
+//
+//        print $oru_reiksmes . "<br>";
+
+//        foreach ($oru_reiksmes as $abc){
+//            print $abc;
+//        }
+
+
+    //}
+
+  //////////////---------------------
+//    $array = [
+//        [1, 2],
+//        [3, 4],
+//        ["PM", "CSS"],
+//    ];
+//
+//    foreach ($array as list($a, $b)) {
+//        // $a contains the first element of the nested array,
+//        // and $b contains the second element.
+//        echo "B: $b\n";
+//    }
+////A: 1; B: 2 A: 3; B: 4
+
+
+
+
+
+
+
+//Pirmas variantas
+
+//    function savaites_diena($kelintadienis){
+//        if ($kelintadienis == 1) {
+//            print " Pirmadienis ";
+//        } if ($kelintadienis == 2)  {
+//            print " antradienis ";
+//        } if ($kelintadienis == 3) {
+//            print " Treciadienis ";
+//        } if ($kelintadienis == 4) {
+//            print " Ketvirtadienis ";
+//        } if ($kelintadienis == 5) {
+//            print " Penktadienis ";
+//        } if ($kelintadienis == 6) {
+//            print " Sestadienis ";
+//        } if ($kelintadienis == 7)  {
+//            print " Sekmadienis ";
+//        } else {
+//            print "enter number from 1 - 7 to get outout";
+//        }
+//    }
+//
+//    print savaites_diena(8) . "<br>";
+
+    //antras variantas
+
+//output kazkoks erroras
+//    if ($_GET['week_day'] == 1) {
+    ////        print " Pirmadienis ";
+    ////    } if ($_GET['week_day'] == 2)  {
+    ////        print " antradienis ";
+    ////    } if ($_GET['week_day'] == 3) {
+    ////        print " Treciadienis ";
+    ////    } if ($_GET['week_day'] == 4) {
+    ////        print " Ketvirtadienis ";
+    ////    } if ($_GET['week_day'] == 5) {
+    ////        print " Penktadienis ";
+    ////    } if ($_GET['week_day'] == 6) {
+    ////        print " Sestadienis ";
+    ////    } if ($_GET['week_day'] == 7)  {
+    ////        print " Sekmadienis ";
+    ////    } if ($_GET['week_day'] >8 || $_GET['week_day']<=0 ) {
+    ////        print "enter number from 1 - 7 to get output" . "<br>";
+    ////    }
+
+//tecias variantas
+
+//    if($_GET['week_day']<8){
+//    switch ($_GET['week_day']){
+//
+//        case 0:
+//            echo "enter from 1 - 7";
+//            break;
+//        case 1:
+//            echo "pirmadienis";
+//            break;
+//        case 2:
+//            echo "antradienis";
+//            break;
+//    }
+//}
+
+
+
+
+
+
+//-------------Liekana-------------------------
+
+//    if($_GET['liekana'] % 2 == 0){
+//        print $_GET['liekana'] . " ________ " . $_GET['liekana'] % 2 . " LYGINIS";
+//        } if ($_GET['liekana'] % 2 == 1){
+//        print $_GET['liekana'] . " ________ " . $_GET['liekana'] % 2 . " NELYGINIS";
+//    }
+
+
+    //-------------Skaiciaus kelimias laipsniu-------------------------
+
+
+//    Parašykite programą, kuri pakeltų skaičių laipsniu.
+//    Vartotojas duoda dvi reikšmes: b ir p. B yra pagrindas, p - laipsnis.
+//
+//    Pvz #1: kai b=2, p=3, tai 2^3=2*2*2=6
+//
+//Pv #2: kai b=5, p=2, tai 5^2=5*5=25
+
+//if ($_GET['kelti_laipsniu']) {
+//    echo "Skaicius " . $_GET['pirmas_skaicius'] . " ^" . $_GET['antras_skaicius'] . " laipsniu = " . $_GET['pirmas_skaicius'] ** $_GET['antras_skaicius'];
+//
+//}
+
+
+
+
+
+
+//------------Surasti didziausia reiksme------------------
+    //Duotas skaičių masyvas (ne iš vartotojo, tiesiog apsirašykit masyvą iš betkokių skaičių). Suraskite didžiausią reikšmę.
+    //
+    //Pvz #1: jei duoti skaičiai 2, 1, 3, tai atsakymas 3
+    //
+    //Pvz #2: jei duoti skaičiai -1, 5, 9, tai atsakymas 9
+
+//    $ivairiu_skaiciu_masyvas = [-15, -4, 0, 8, 800, 14, -64, 19000];
+//
+//    print "maziausias skaicius sitame masyve \$ivairiu_skaiciu_masyvas yra ". min($ivairiu_skaiciu_masyvas) . "<br>";
+//    print "didziausias skaicius sitame masyve \$ivairiu_skaiciu_masyvas yra ". max($ivairiu_skaiciu_masyvas) . "<br>";
+//
+
+
+
+
+
+    //------------Pirminis ar nepirminis skaicius------------------
+
+    //Parašykite programą, kuri patikrintų, ar vartotojo duotas skaičius yra pirminis.
+    // Skaičius yra pirminis, jei jis dalinasi tik iš 1 ir savęs (1 nėra pirminis skaičius).
+    // Pirmieji pirminiai skaičiai: 2, 3, 5, 7, 11, 13, 17, ...
+    //
+    //Pvz #1: 1 -> ne
+    //
+    //Pvz #2: 7 -> taip
+
+
+//    $bet_koks_skaicius = $_GET['pirminis_skaicius'];
+//
+//    if ($bet_koks_skaicius % 2 == 1){
+//
+//        print $bet_koks_skaicius . " Yra pirminis skaicius";
+//        }elseif ($bet_koks_skaicius % 2 == 0){
+//        print $bet_koks_skaicius . " Yra nepirminis skaicius";
+//        }else{
+//        print "Iveskite skaiciu";
+//    }
+
+
+
+
+
+
+
+    //------------sudeti masyve min ir max reiksmes------------------
+
+//Parašykite programą, kuri suskaičiuotų masyve esančių didžiausio
+    // ir mažiausio skaičių aritmetinį vidurkį.
+    //
+    //Pvz #1: [1, 2, 3] -> 2
+    //
+    //Pvz #2: [6, 7, 4, -7, 0] -> 0
+    //
+    //Pvz #3: [2] -> 2
+
+
+//    $skaiciai_masyve_min_max = [-8, 0, 14, 20];
+//    $atsakymas_min_max = (min($skaiciai_masyve_min_max) + max($skaiciai_masyve_min_max)) / 2;
+//
+//    print "Masyvas [-8, 0, 14, 20]" . "<br>";
+//    print "Sudeti maziausia ir didziausia skaiciu masyve ir isvesti tu skaiciu aritmetini ju vidurki:" . "<br>";
+//    print "Minimalus skaicius masyve yra " . min($skaiciai_masyve_min_max) . "<br>";
+//    print "Maximalus skaicius masyve yra " . max($skaiciai_masyve_min_max) . "<br>";
+//    print "siu skaiciu aritmetinis vidurkis yra " . $atsakymas_min_max;
+
+
+
+
+
+
+
+    //------------masyve esanciu skaiciu aritmetinis vidurkis------------------
+
+
+//    $skaiciu_masyvas = [-8, 0, 14, 20];
+//
+//    foreach ($skaiciu_masyvas as $visi_skaiciai_masyve){
+//
+//        $skaiciu_sudetis += $visi_skaiciai_masyve;
+//    }
+//
+//    print $skaiciu_sudetis / count($skaiciu_masyvas);
+//
+
+
+
+
+
+    //------------ visu nelyginiu skaiciu suma nuo 1 - 100 ------------------
+
+//Suskaičiuokite visų nelyginių skaičių sumą nuo 1 iki 100.
+    //
+    //Hint: atsakymas 2500
+
+//    for ($x = 1; $x <= 100; $x++) {
+//        if ($x % 2 == 1) {
+//            $v += $x;
+//        }
+//
+//    }
+//    print $v;
+
+
+
+
+
+    //------------ visu nelyginiu skaiciu suma nuo 1 - 100 ------------------
+
+    //Parašykite programą, kuri paskaičiuotų, kiek
+    // mokesčių žmogus turi sumokėti nuo pajamų. Vartotojas
+    // įveda savo pajamų skaičių, neapmokestinamą pajamų dydį
+    // (NPD) ir mokesčių tarifą. Duomenys keliauja GET metodu.
+
+    //Pvz #1: 500 pajamų, 200 NPD, 50% mokesčių tarifas -> 150
+
+//Pvz #2: 1000 pajamų, 0 NPD, 100% mokesčių tarifas -> 1000
+
+//if(isset($_POST['skaiciuoti'])) {
+//    $mokesciai = $_POST['mokesciai'] /100;
+//    $pajamos = $_POST['pajamos'];
+//    $npd = $_POST['npd'];
+//
+//    $reikia_sumoketi_mokesciu = ($pajamos - $npd) * $mokesciai;
+//
+//
+//
+//    print "Jums reikia moketi " . $reikia_sumoketi_mokesciu;
+//}
+
+
+
+
+
+
+    //------------ Submit vartotojo ir zinute ------------------
+
+//Parašykite programą, kurioje vartotojas formoje įveda savo vardą ir pavardę.
+    // Užsubmitinus formą, turi pasirodyti tekstas "Labas, <vardas>.
+    // Tavo pavardė yra <pavarde>." Duomenys keliauja POST metodu.
+
+//Bonus sudetingumas (nebūtina) - vardas turi būti kreipinys (pvz.
+    // Įvedus Tomas, turi išvesti "Labas, Tomai").
+
+
+//if (isset($_POST['log_in'])) {
+//    if ($_POST['vardas_1'] == "Rimantas") {
+//
+//        print "Labas " . str_replace("Rimantas","Rimantai","Rimantas");
+//        print "<br>" . "Tavo pavarde yra " . $_POST['pavarde_1'];
+//        }else{
+//        print "Labas " . $_POST['vardas_1'] . " Tavo pavarde " . $_POST['pavarde_1'];
+//    }
+//}
+
+
+    //------------ Submit vartotojo ir zinute ------------------
+
+
+    //masyvas didejimo tvarka
+
+//    Parašykite programą, kuri surikiuotų masyvą didėjimo tvarka
+    // (t.y. nuo didžiausio iki mažiausio).
+//
+//Pvz #1: [3, 2, 1] -> [3, 2, 1]
+//
+//Pvz #2: [1, 2, 3] -> [3, 2, 1]
+//
+//Pvz #3: [2, 1, 3] -> [3, 2, 1]
+//
+
+
+
+//$skaiciu_masyvas_didejimas = [0, -8, 22, 14, -18];
+//
+//    arsort($skaiciu_masyvas_didejimas);
+//
+//foreach ($skaiciu_masyvas_didejimas as $value){
+//
+//        print $value . " ";
+//    }
+
+
+
+
+
+    //------------ Submit vartotojo ir zinute ------------------
+
+
+
+
+
+
+//    $a = array();
+    ////    $a[0][0] = "a";
+    ////    $a[0][1] = "b";
+    ////    $a[1][0] = "y";
+    ////    $a[1][1] = "z";
+    ///
+//    $a = [
+//            [
+//                'a',
+//                'b',
+//            ],
+//            [
+//                'y',
+//                'z',
+//
+//            ],
+//    ];
+//
+//
+//        foreach ($a as $v1) {
+//            foreach ($v1 as $v2) {
+//                echo "$v2\n";
+//            }
+//        }
+    ?>
+    <?php
+        //print savaites_diena(7);
+    ?>
+
+    <h2>Forma Week_day</h2>
+    <form action="index.php" method="GET">
+        <input type="number" name="week_day">
+        <input type="submit">
+    </form>
+
+    <h2>Forma liekana</h2>
+    <form action="index.php" method="GET">
+        <input type="number" name="liekana">
+        <input type="submit">
+    </form>
+
+    <h2>Skaiciu kelimas laipsniais</h2>
+    <form action="index.php" method="GET">
+        <label for="pirmas_skaicius">Iveskite skaiciu
+        <input type="number" name="pirmas_skaicius"></label><br>
+        <label for="antras_skaicius">Iveskite laipsni kuriuo norite pakelti skaiciu
+        <input type="number" name="antras_skaicius"></label><br>
+        <input type="submit" value="Kelti laipsniu" name="kelti_laipsniu">
+    </form>
+
+    <h2>Piiminis ar nepirminis skaicius?</h2>
+    <form action="index.php" method="GET">
+        <label for="pirminis_skaicius">Iveskite skaiciu
+            <input type="number" name="pirminis_skaicius"></label><br>
+        <input type="submit" value="tikrinti" name="tikrinti">
+    </form>
+
+
+
+    <h2>Mokesciu skaiciavimas</h2>
+    <form action="index.php" method="POST">
+        <label for="pajamos">Iveskite savo pajamas
+            <input type="number" name="pajamos"></label><br>
+        <label for="npd">Iveskite savo NPD
+            <input type="number" name="npd"></label><br>
+        <label for="mokesciai">Iveskite mokesciu dydi (procentu zenklo nedeti)
+            <input type="number" name="mokesciai"></label><br>
+        <input type="submit" value="skaiciuoti" name="skaiciuoti">
+    </form>
+
+    <h2>Forma Submitui</h2>
+    <form action="index.php" method="POST">
+        <label for="vardas_1">Iveskite savo varda
+            <input type="text" name="vardas_1" placeholder="Iveskite savo varda"></label><br>
+        <label for="pavarde_1">Iveskite savo pavarde
+            <input type="text" name="pavarde_1" placeholder="Iveskite savo pavarde"></label><br>
+            <input type="submit" value="Log in" name="log_in">
+    </form>
+
 
 </section>
 
@@ -356,7 +750,7 @@ $size = 100;
 
 
 <section>
-   <h1>kartojimas</h1>
+    <h1>kartojimas</h1>
 
     <?php
 
@@ -376,36 +770,32 @@ $size = 100;
         ],
     ];
 
-    foreach($array as $key => $value){
+    foreach ($array as $key => $value) {
         $i = 0;
         $i++;
-        if($i == 1){
+        if ($i == 1) {
             $pirmasis_pavadinimas = $key; //atspaudina 'Vartotojai'
-        }elseif ($i == 2){
+        } elseif ($i == 2) {
             $antrasis_pavadinimas = $key; //atspaudina 'Inventorius'
         }
 
-        foreach ($value as $headeriai => $td){
+        foreach ($value as $headeriai => $td) {
             print $headeriai;
             $i++;
-            if ($i == 1){
+            if ($i == 1) {
                 $pirmasis_masyvas_key = $headeriai; // atspausdina pirmas masyvas key
-                foreach ($value as $headeriai => $td){
+                foreach ($value as $headeriai => $td) {
                     $pirmasis_pavadinimas_key = $headeriai; //atspausdina 'pirmasis masyvas key'
                 }
-            } elseif ($i == 2){
+            } elseif ($i == 2) {
                 $antras_pavadinimas = $key; // atspausdina ""inventorous''
-                foreach ($value as $headeriai => $td){
+                foreach ($value as $headeriai => $td) {
                     $antrasis_pavadinimas_key = $headeriai; //atspausdina 'antrasis masyvas key'
                 }
             }
         }
 
     }
-
-
-
-
 
 
     ?>
@@ -424,8 +814,6 @@ $size = 100;
             <td></td>
         </tr>
     </table>
-
-
 
 
 </section>

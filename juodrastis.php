@@ -3,7 +3,6 @@
 function cizos()
 {
 
-
     for ($surukytos_cizos_per_savaite = 1; $surukytos_cizos_per_savaite < 5; $surukytos_cizos_per_savaite++) {
 
         $savaites = 52;
@@ -26,11 +25,51 @@ function cizos()
 }
 
 
+
+
 //----------------------
 //didejancios bombos php
 
 $bombos_aukstis = 80 + (date("s") * 5);
 $bombos_plotis = 120 + (date("s") * 5);
+
+
+
+//skirtingu oru php
+
+
+//    $sauleta = "Sauleta";
+//    $debesuota = "Debesuota";
+//    $be_lietaus = "be lietaus";
+//    $su_lietum = "su lietum";
+//$orai = [
+//        " Sauleta " => " saules spindulys ",
+//        " Debesuota "  => " daug debesu ",
+//        " be lietaus "  => " nera lietaus ",
+//        " su lietum "  => " daug lietaus ",
+//    ];
+
+//$orai = [
+//    " Sauleta " => " saules spindulys ",
+//    " Debesuota "  => " daug debesu ",
+//    " be lietaus "  => " nera lietaus ",
+//    " su lietum "  => " daug lietaus ",
+//];
+
+$orai = [
+    " 1a " =>  [
+        'kambariu skaicius' => 5 . ' kambariai',
+        'lygiu skaicius' => '4 lygiai',
+    ],
+    " 2a "  => " Debesuota ",
+    " 3a "  => " be lietaus ",
+    " 4a "  => " su lietum ",
+];
+
+
+
+
+
 
 
 //-------------------
